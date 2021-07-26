@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+    var doc = null;
+    window.onload = function() {
+        alert("Filling IFrame");
+        doc = document.getElementById("test");
+
+        if( doc.document ) {
+            document.test.document.body.innerHTML = "<h1>test</h1>"; //Chrome, IE
+        }else {
+            doc.contentDocument.body.innerHTML = "<h1>test</h1>"; //FireFox
+        }
+
+            setTimeout(function() { 
+                alert("Clearing IFrame");
+
+                if( doc.document ) {
+                    document.test.document.body.innerHTML = ""; //Chrome, IE
+                }else {
+                    doc.contentDocument.body.innerHTML = ""; //FireFox
+                }
+
+            }, 3000);
+        };
+    </script>
+</head>
+
+<body>
+    <iframe id="test" name="test">
+
+    </iframe>
+</body>
+</html>

@@ -1,0 +1,49 @@
+@token = mangludaku
+@host = https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP
+@host2 = https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP
+
+POST {{host}} HTTP/1.1
+Authorization: token mangludaku
+Content-Type: application/json
+accept: application/json
+
+
+{
+  "mobile": "8169257402"
+}
+
+
+###
+POST {{host2}} HTTP/1.1
+Authorization: token mangludaku
+Content-Type: application/json
+accept: application/json
+
+
+{
+  "otp": "4e2811649e46f8eda60d04b2dc68c7ae51636838afba939a51fb82f5566d046e",
+  "txnId": "9a3a3194-4e1d-495f-882a-fb8f387530fb"
+}
+
+### Borivali East
+GET https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=400101&date=26-05-2021
+### Kandivali East
+GET https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=400101&date=24-05-2021
+
+
+### Protected - cdndemo-api.co-vin.in
+GET https://cdn-api.co-vin.in/api/v2/appointment/sessions/findByPin?pincode=400101&date=27-05-2021&vaccine=COVISHIELD HTTP/1.1
+Accept-Language: hi_IN
+accept: application/json
+Authorization: Bearer mangludaku
+
+{
+  "name": "3sjOr2rmM52GzhpMHjDEE1kpQeRxwFDr4YcBEimi"
+}
+ 
+
+###
+GET https://cdn-api.co-vin.in/api/v2/appointment/centers/public/findByLatLong?lat=19&long=72
+
+###
+GET https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByCenter?center_id=610288&date=20-05-2021
